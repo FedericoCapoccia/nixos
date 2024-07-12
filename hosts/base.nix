@@ -41,8 +41,10 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
+    bat
     neovim
     git
+    stow
     zsh
   ];
 
