@@ -1,5 +1,7 @@
 .git
 flake.*
-home*
+home-manager
+config-sync.sh
+system-sync.sh
 hosts
 modules
