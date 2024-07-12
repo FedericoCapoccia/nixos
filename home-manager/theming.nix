@@ -11,8 +11,8 @@
       package = pkgs.materia-theme;
     };
     cursorTheme = {
-      name = "Phinger";
-      package = pkgs.phinger-cursors;
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
       size = 16;
     };
     font = {
