@@ -1,4 +1,8 @@
 { pkgs, ... }:
+let
+  cursor_name = "Bibata-Modern-Classic";
+  cursor_size = 20;
+in
 {
   gtk = {
     enable = true;
@@ -11,12 +15,12 @@
       package = pkgs.materia-theme;
     };
     cursorTheme = {
-      name = "Bibata-Modern-Classic";
+      name = cursor_name;
       package = pkgs.bibata-cursors;
-      size = 16;
+      size = cursor_size;
     };
     font = {
-      size = 11;
+      size = 12;
       name = "Ubuntu Nerd Font";
     };
     gtk2.extraConfig = "gtk-application-prefer-dark-theme=1";
@@ -36,4 +40,7 @@
     qt5ct
     qt6ct
   ];
+
+
+  wayland.windowManager.sway.extraConfig = "seat seat0 xcursor_theme ${cursor_name} ${toString cursor_size}";
 }

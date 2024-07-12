@@ -18,8 +18,8 @@
       ll = "ls -lahF";
       gitacp = "git add --all && git commit -m \"\$(curl -s https://whatthecommit.com/index.txt)\" && git push";
       inv = "nvim \$(fzf -m --preview=\"bat --color=always {}\")";
-      up = "sh ~/nixos/sync-system.sh";
-      hup = "sh ~/nixos/sync-user.sh";
+      up = "sh ~/nixos/system-sync.sh";
+      hup = "sh ~/nixos/config-sync.sh";
     };
 
     history = {

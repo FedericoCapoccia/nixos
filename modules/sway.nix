@@ -16,6 +16,7 @@
       swaynotificationcenter
       polkit_gnome
       yazi
+      pavucontrol
     ];
   };
 

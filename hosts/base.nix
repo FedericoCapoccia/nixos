@@ -48,6 +48,7 @@
     stow
     zsh
     home-manager
+    glib
   ];
 
   environment.sessionVariables = {

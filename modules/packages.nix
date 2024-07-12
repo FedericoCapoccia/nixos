@@ -4,5 +4,6 @@
     (pkgs.${userConfig.terminal})
     (pkgs.${userConfig.browser})
     bat
+    fastfetch
   ];
 }
