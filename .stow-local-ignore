@@ -1,4 +1,5 @@
-^(.*)$
-^(\..*)$
-!.config/
-!wallpapers/
+.git
+flake.*
+home*
+hosts
+modules
