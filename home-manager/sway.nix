@@ -42,6 +42,7 @@ in
       #---Startup---#
       startup = [
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+	{ command = "${pkgs.corectrl}/bin/corectrl"; }
         { command = "${pkgs.waybar}/bin/waybar"; }
         { command = "${pkgs.autotiling}/bin/autotiling --limit 2"; }
         { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipman}/bin/clipman store"; }

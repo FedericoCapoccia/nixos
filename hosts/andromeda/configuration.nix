@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../base.nix
     ../../modules/sway.nix
+    ../../modules/corectrl.nix
     ../../modules/pipewire.nix
     ../../modules/packages.nix
   ];
