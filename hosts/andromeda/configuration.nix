@@ -7,6 +7,7 @@
     ../../modules/corectrl.nix
     ../../modules/pipewire.nix
     ../../modules/packages.nix
+    ../../modules/gaming.nix
   ];
 
   fonts.packages = with pkgs; [

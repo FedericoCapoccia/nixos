@@ -23,4 +23,17 @@
     gtk3.extraConfig = { gtk-application-prefer-dark-theme = "1"; };
     gtk4.extraConfig = { gtk-application-prefer-dark-theme = "1"; };
   };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+  };
+
+  home.packages = with pkgs; [
+    materia-kde-theme
+    libsForQt5.qtstyleplugin-kvantum
+    kdePackages.qtstyleplugin-kvantum
+    qt5ct
+    qt6ct
+  ];
 }

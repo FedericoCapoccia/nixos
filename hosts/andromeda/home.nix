@@ -7,7 +7,7 @@
   imports = [
     ../../home-manager/sway.nix
     ../../home-manager/zsh.nix
-    ../../home-manager/gtk.nix
+    ../../home-manager/theming.nix
     ../../home-manager/git.nix
     ../../home-manager/oh-my-posh.nix
   ];
