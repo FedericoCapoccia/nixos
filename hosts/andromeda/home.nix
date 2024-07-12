@@ -10,6 +10,7 @@
     ../../home-manager/theming.nix
     ../../home-manager/git.nix
     ../../home-manager/oh-my-posh.nix
+    ../../home-manager/firefox.nix
   ];
 
   xdg = {
@@ -28,6 +29,9 @@
     };
     mimeApps = {
       enable = true;
+      defaultApplications = {
+        "inode/directory" = "nemo.desktop";
+      };
     };
   };
   home.stateVersion = "24.05";

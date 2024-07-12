@@ -17,6 +17,7 @@
       polkit_gnome
       yazi
       pavucontrol
+      cinnamon.nemo-with-extensions
     ];
   };
 

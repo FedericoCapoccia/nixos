@@ -8,6 +8,7 @@
     ../../modules/pipewire.nix
     ../../modules/packages.nix
     ../../modules/gaming.nix
+    ../../modules/bluetooth.nix
   ];
 
   fonts.packages = with pkgs; [

@@ -5,7 +5,7 @@ let
     term = userConfig.terminal;
     browser = userConfig.browser;
     menu = "wofi --show drun --allow-images -a";
-    files = "Thunar";
+    files = "nemo";
 
     up = "k";
     down = "j";
