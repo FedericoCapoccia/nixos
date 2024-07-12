@@ -46,6 +46,7 @@
     git
     stow
     zsh
+    home-manager
   ];
 
   environment.sessionVariables = {

@@ -2,4 +2,5 @@
 flake.*
 hosts
 modules
-sync*
+home-manager
+*sync*.sh
