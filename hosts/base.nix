@@ -41,6 +41,7 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
 
+  environment.pathsToLink = [ "/share/zsh" ];
   environment.systemPackages = with pkgs; [
     neovim
     git
