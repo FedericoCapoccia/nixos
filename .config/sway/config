@@ -1,14 +1,3 @@
-#exec
-
-#set $gnome-schema org.gnome.desktop.interface
-#exec_always {
-#    gsettings set $gnome-schema gtk-theme 'Materia-dark'
-#    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-#    gsettings set $gnome-schema cursor-theme 'Adwaita'
-#    gsettings set $gnome-schema font-name 'Ubuntu Nerd Font 12'
-#    gsettings set $gnome-schema color-scheme 'prefer-dark'
-#}
-
 #exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec autotiling --limit 2
@@ -25,7 +14,7 @@ exec corectrl
 set $mod Mod4
 set $term wezterm
 set $menu wofi --show drun --allow-images -a
-set $browser flatpak run org.mozilla.firefox
+set $browser firefox
 set $files nemo
 set $left h
 set $down j
@@ -86,7 +75,8 @@ for_window [app_id = "org.pulseaudio.pavucontrol"] floating enable
 
 bindsym {
   #---Sway--# 
-  $mod+m exec swaymsg exit
+  #$mod+m exec swaymsg exit
+  $mod+m exec sway exit
   $mod+Shift+c reload
 
   #---Programs---#
@@ -167,4 +157,4 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 
-include $XDG_CONFIG_HOME/sway/config.d/*
+include @sysconfdir@/sway/config.d/*

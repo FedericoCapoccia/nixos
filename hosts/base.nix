@@ -1,4 +1,4 @@
-{ pkgs, systemConfig, ... }:
+{ pkgs, systemConfig, userConfig, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -33,15 +33,15 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-  users.users.fede = {
+  users.users.${userConfig.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
   programs.zsh.enable = true;
+  programs.dconf.enable = true;
 
   environment.systemPackages = with pkgs; [
-    bat
     neovim
     git
     stow
