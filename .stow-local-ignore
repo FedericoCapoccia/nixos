@@ -1,6 +1,4 @@
-.git
-flake.*
-hosts
-modules
-home-manager
-*sync*.sh
+^(.*)$
+^(\..*)$
+!.config/
+!wallpapers/
