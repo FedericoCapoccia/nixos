@@ -5,5 +5,10 @@
     (pkgs.${userConfig.browser})
     bat
     fastfetch
+    direnv
+
+    # Lsp
+    sumneko-lua-language-server
+    nil
   ];
 }

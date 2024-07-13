@@ -1,4 +1,4 @@
-{ config, pkgs, userConfig, ... }:
+{ config, userConfig, ... }:
 {
   home.username = userConfig.username;
   home.homeDirectory = "/home/" + userConfig.username;
@@ -11,6 +11,7 @@
     ../../home-manager/git.nix
     ../../home-manager/oh-my-posh.nix
     ../../home-manager/firefox.nix
+    ../../home-manager/direnv.nix
   ];
 
   xdg = {
