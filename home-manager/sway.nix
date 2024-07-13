@@ -42,12 +42,12 @@ in
       #---Startup---#
       startup = [
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
-	{ command = "${pkgs.corectrl}/bin/corectrl"; }
+        { command = "${pkgs.corectrl}/bin/corectrl"; }
         { command = "${pkgs.waybar}/bin/waybar"; }
         { command = "${pkgs.autotiling}/bin/autotiling --limit 2"; }
         { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipman}/bin/clipman store"; }
         { command = "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"; }
-	{ command = "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"; }
+        { command = "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"; }
       ];
 
       #---Input---#

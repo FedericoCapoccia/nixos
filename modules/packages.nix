@@ -10,5 +10,8 @@
     # Lsp
     sumneko-lua-language-server
     nil
+
+    # Formatters
+    nixpkgs-fmt
   ];
 }
