@@ -7,10 +7,17 @@
     availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
     supportedFilesystems = [ "btrfs" ];
     kernelModules = [ ];
+    verbose = false;
+    systemd.enable = true;
   };  
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelParams = [ "amd_pstate=passive" ];
-  boot.extraModulePackages = [ ];
+
+  boot = {
+    kernelModules = [ "kvm-amd" ];
+    kernelParams = [ "quiet" "splash" "udev.log_level=3" "amd_pstate=passive" ];
+    extraModulePackages = [ ];
+    consoleLogLevel = 0;
+  };
+
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
