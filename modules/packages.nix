@@ -13,5 +13,6 @@
 
     # Formatters
     nixpkgs-fmt
+    stylua
   ];
 }
