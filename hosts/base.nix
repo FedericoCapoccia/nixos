@@ -49,6 +49,7 @@
     zsh
     home-manager
     glib
+    clang
   ];
 
   environment.sessionVariables = {
