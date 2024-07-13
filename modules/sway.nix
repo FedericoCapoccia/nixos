@@ -18,6 +18,7 @@
       yazi
       pavucontrol
       cinnamon.nemo-with-extensions
+      xdg-utils
     ];
   };
 

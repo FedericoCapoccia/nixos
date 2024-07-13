@@ -40,6 +40,9 @@
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;
+  programs.nix-ld = {
+    enable = true;
+  };
 
   environment.pathsToLink = [ "/share/zsh" ];
   environment.systemPackages = with pkgs; [

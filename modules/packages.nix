@@ -7,6 +7,11 @@
     fastfetch
     direnv
 
+    jetbrains.idea-ultimate
+    jetbrains.rider
+    dotnet-sdk_8
+    msbuild
+
     # Lsp
     sumneko-lua-language-server
     nil
