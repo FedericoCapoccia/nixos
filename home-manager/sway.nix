@@ -64,6 +64,10 @@ in
         "1356:1476:Sony_Computer_Entertainment_Wireless_Controller_Touchpad" = {
           events = "disabled";
         };
+        "1356:1476:Wireless_Controller_Touchpad" = {
+          events = "disabled";
+        };
+
       };
 
       gaps = {

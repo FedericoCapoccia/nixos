@@ -7,6 +7,8 @@
     fastfetch
     direnv
 
+    spotify
+
     jetbrains.idea-ultimate
     jetbrains.rider
     dotnet-sdk_8
