@@ -8,6 +8,7 @@
     direnv
 
     spotify
+    playerctl
 
     jetbrains.idea-ultimate
     jetbrains.rider
