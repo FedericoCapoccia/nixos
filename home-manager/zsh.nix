@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, userConfig, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -34,6 +34,11 @@
       if [[ -n "$SSH_CLIENT" ]]; then
         export TERM=xterm
       fi
+    '';
+
+    # Flatpak
+    profileExtra = ''
+      export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/${userConfig.username}/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
     '';
   };
 

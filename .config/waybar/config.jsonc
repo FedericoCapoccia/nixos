@@ -78,7 +78,8 @@
   },
 
   "custom/launcher": {
-    "format":" ",
+    //"format":" ",
+    "format":" ",
     "on-click": "exec wofi --show=drun -a --allow-images",
     "tooltip": false
   },

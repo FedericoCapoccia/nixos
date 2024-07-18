@@ -15,5 +15,7 @@
     (nerdfonts.override { fonts = [ "Ubuntu" "UbuntuMono" "JetBrainsMono" ]; })
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.getty.autologinUser = userConfig.username;
 }

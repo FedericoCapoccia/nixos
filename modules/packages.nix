@@ -22,5 +22,9 @@
     # Formatters
     nixpkgs-fmt
     stylua
+
+    (prismlauncher.override { jdks = [ jdk8 jdk17 jdk21 ]; })
   ];
+
+  services.flatpak.enable = true;
 }
