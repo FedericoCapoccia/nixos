@@ -9,6 +9,7 @@
     ../../modules/packages.nix
     ../../modules/gaming.nix
     ../../modules/bluetooth.nix
+    ../../modules/docker.nix
   ];
 
   fonts.packages = with pkgs; [
