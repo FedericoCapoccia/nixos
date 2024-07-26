@@ -4,7 +4,7 @@ let
     mod = "Mod4";
     term = userConfig.terminal;
     browser = userConfig.browser;
-    menu = "wofi --show drun --allow-images -a";
+    menu = "wofi --show drun --allow-images -a -i";
     files = "nemo";
 
     up = "k";
