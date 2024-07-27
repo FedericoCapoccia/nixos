@@ -6,6 +6,7 @@ let
     browser = userConfig.browser;
     menu = "wofi --show drun --allow-images -a -i";
     files = "nemo";
+    wallpaper = "linkin-park.png";
 
     up = "k";
     down = "j";
@@ -36,7 +37,7 @@ in
       #---Output---#
       output."*" = {
         mode = "2560x1440@144Hz position 0 0";
-        bg = "/home/${userConfig.username}/wallpaper/default.png fill";
+        bg = "/home/${userConfig.username}/wallpaper/${cfg.wallpaper} fill";
       };
 
       #---Startup---#
