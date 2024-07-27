@@ -15,6 +15,7 @@
     jetbrains.rider
     dotnet-sdk_8
     msbuild
+    vscode-fhs
 
     # Lsp
     sumneko-lua-language-server
