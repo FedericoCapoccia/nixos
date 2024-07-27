@@ -6,6 +6,8 @@
     bat
     fastfetch
     direnv
+    stremio
+    thunderbird
 
     spotify
     playerctl
