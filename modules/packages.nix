@@ -16,6 +16,7 @@
     dotnet-sdk_8
     msbuild
     vscode-fhs
+    insomnia
 
     # Lsp
     sumneko-lua-language-server
