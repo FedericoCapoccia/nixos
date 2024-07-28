@@ -7,6 +7,8 @@
     fastfetch
     direnv
     stremio
+    tree
+    btop
 
     spotify
     playerctl
