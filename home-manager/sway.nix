@@ -1,9 +1,9 @@
-{ pkgs, userConfig, ... }:
+{ pkgs, systemConfig, ... }:
 let
   cfg = {
     mod = "Mod4";
-    term = userConfig.terminal;
-    browser = userConfig.browser;
+    term = systemConfig.terminal;
+    browser = systemConfig.browser;
     menu = "wofi --show drun --allow-images -a -i";
     files = "nemo";
     wallpaper = "linkin-park.png";
@@ -13,7 +13,8 @@ let
     right = "l";
     left = "h";
   };
-in {
+in
+{
   programs.zsh.initExtra = ''
     if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
       dbus-run-session sway
@@ -42,23 +43,19 @@ in {
       #---Startup---#
       startup = [
         {
-          command =
-            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         }
         { command = "${pkgs.corectrl}/bin/corectrl"; }
         { command = "${pkgs.waybar}/bin/waybar"; }
         { command = "${pkgs.autotiling}/bin/autotiling --limit 2"; }
         {
-          command =
-            "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipman}/bin/clipman store";
+          command = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipman}/bin/clipman store";
         }
         {
-          command =
-            "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";
+          command = "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";
         }
         {
-          command =
-            "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";
+          command = "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";
         }
       ];
 
@@ -76,7 +73,9 @@ in {
         "1356:1476:Sony_Computer_Entertainment_Wireless_Controller_Touchpad" = {
           events = "disabled";
         };
-        "1356:1476:Wireless_Controller_Touchpad" = { events = "disabled"; };
+        "1356:1476:Wireless_Controller_Touchpad" = {
+          events = "disabled";
+        };
 
       };
 
@@ -223,10 +222,8 @@ in {
         "${cfg.mod}+Shift+0" = "move container to workspace number 10";
 
         #---Media Keys---#
-        "XF86AudioRaiseVolume" =
-          "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1";
-        "XF86AudioLowerVolume" =
-          "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioPlay" = "exec playerctl play-pause";
         "XF86AudioNext" = "exec playerctl next";

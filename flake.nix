@@ -41,7 +41,16 @@
 
         andromeda = nixpkgs.lib.nixosSystem {
           system = systemConfig.system;
-          modules = [ (hostPath "andromeda" + "/configuration.nix") ];
+          modules = [
+            (hostPath "andromeda" + "/configuration.nix")
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${systemConfig.username} = import ./hosts/home.nix;
+              home-manager.extraSpecialArgs = { inherit systemConfig; };
+            }
+          ];
           specialArgs = {
             inherit systemConfig;
           };
@@ -64,10 +73,12 @@
 
       };
 
-      homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ "./hosts/home.nix" ];
-        extraSpecialArgs = { inherit systemConfig; };
-      };
+      # homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
+      #   inherit pkgs;
+      #   modules = [
+      #     (hostPath "andromeda" + "/../home.nix")
+      #   ]; # FIXME:
+      #   extraSpecialArgs = { inherit systemConfig; };
+      # };
     };
 }

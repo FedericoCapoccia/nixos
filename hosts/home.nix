@@ -1,15 +1,15 @@
-{ config, userConfig, ... }:
+{ config, systemConfig, ... }:
 {
-  home.username = userConfig.username;
-  home.homeDirectory = "/home/" + userConfig.username;
+  home.username = systemConfig.username;
+  home.homeDirectory = "/home/" + systemConfig.username;
   programs.home-manager.enable = true;
 
   imports = [
-    ../../home-manager/zsh.nix
-    ../../home-manager/theming.nix
-    ../../home-manager/git.nix
-    ../../home-manager/oh-my-posh.nix
-    ../../home-manager/direnv.nix
+    ../home-manager/zsh.nix
+    ../home-manager/theming.nix
+    ../home-manager/git.nix
+    ../home-manager/oh-my-posh.nix
+    ../home-manager/direnv.nix
   ];
 
   xdg = {

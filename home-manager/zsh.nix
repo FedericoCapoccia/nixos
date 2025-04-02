@@ -1,4 +1,10 @@
-{ pkgs, config, userConfig, ... }: {
+{
+  pkgs,
+  config,
+  systemConfig,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -15,8 +21,7 @@
       ls = "ls --color=auto";
       l = "ls -l";
       ll = "ls -lahF";
-      gitacp = ''
-        git add --all && git commit -m "$(curl -s https://whatthecommit.com/index.txt)" && git push'';
+      gitacp = ''git add --all && git commit -m "$(curl -s https://whatthecommit.com/index.txt)" && git push'';
       inv = ''nvim $(fzf -m --preview="bat --color=always {}")'';
       up = "sh ~/nixos/system-sync.sh";
       hup = "sh ~/nixos/config-sync.sh";
@@ -38,11 +43,14 @@
 
     # Flatpak
     profileExtra = ''
-      export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/${userConfig.username}/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+      export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/${systemConfig.username}/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
     '';
   };
 
-  home.packages = with pkgs; [ zsh-fzf-tab zsh-fzf-history-search ];
+  home.packages = with pkgs; [
+    zsh-fzf-tab
+    zsh-fzf-history-search
+  ];
 
   programs.fzf = {
     enable = true;
