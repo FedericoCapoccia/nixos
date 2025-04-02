@@ -19,7 +19,7 @@
       nixpkgs,
       home-manager,
       nixos-wsl,
-      lanzaboote,
+      # lanzaboote,
       ...
     }:
     let
