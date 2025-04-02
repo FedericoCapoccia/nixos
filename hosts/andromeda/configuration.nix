@@ -14,7 +14,7 @@
   ];
 
   networking = {
-    hostName = systemConfig.hostname;
+    hostName = "andromeda";
     networkmanager.enable = true;
     firewall.enable = true;
   };
