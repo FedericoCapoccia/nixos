@@ -8,6 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    # lanzaboote = {
+    #   url = "github:nix-community/lanzaboote/v0.4.2";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
@@ -15,6 +19,7 @@
       nixpkgs,
       home-manager,
       nixos-wsl,
+      lanzaboote,
       ...
     }:
     let
@@ -50,6 +55,32 @@
               home-manager.users.${systemConfig.username} = import ./hosts/home.nix;
               home-manager.extraSpecialArgs = { inherit systemConfig; };
             }
+
+            # IF USING THIS I CANT BOOT WINDOWS :facepalm:
+            # lanzaboote.nixosModules.lanzaboote
+            #
+            # (
+            #   { pkgs, lib, ... }:
+            #   {
+            #
+            #     environment.systemPackages = [
+            #       # For debugging and troubleshooting Secure Boot.
+            #       pkgs.sbctl
+            #     ];
+            #
+            #     # Lanzaboote currently replaces the systemd-boot module.
+            #     # This setting is usually set to true in configuration.nix
+            #     # generated at installation time. So we force it to false
+            #     # for now.
+            #     boot.loader.systemd-boot.enable = lib.mkForce false;
+            #
+            #     boot.lanzaboote = {
+            #       enable = true;
+            #       pkiBundle = "/var/lib/sbctl";
+            #     };
+            #   }
+            # )
+
           ];
           specialArgs = {
             inherit systemConfig;
