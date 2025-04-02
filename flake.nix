@@ -65,6 +65,13 @@
               wsl.enable = true;
             }
             (hostPath "zephyr" + "/configuration.nix")
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${systemConfig.username} = import ./hosts/home.nix;
+              home-manager.extraSpecialArgs = { inherit systemConfig; };
+            }
           ];
           specialArgs = {
             inherit systemConfig;
