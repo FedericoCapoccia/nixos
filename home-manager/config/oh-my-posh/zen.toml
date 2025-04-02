@@ -1,71 +1,69 @@
 #:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
 
-version = 2
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
 final_space = true
-console_title_template = "{{ .Shell }} in {{ .Folder }}"
+
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
 [[blocks]]
-  type = "prompt"
-  alignment = "left"
+  type = 'prompt'
+  alignment = 'left'
   newline = true
 
   [[blocks.segments]]
-    type = "path"
-    style = "plain"
-    foreground = "cyan"
-    background = "transparent"
-    template = "{{ .Path }}"
+    template = '{{ .Path }}'
+    foreground = 'cyan'
+    background = 'transparent'
+    type = 'path'
+    style = 'plain'
 
     [blocks.segments.properties]
-      style = "full"
+      cache_duration = 'none'
+      style = 'full'
 
   [[blocks.segments]]
-    type = "git"
-    style = "plain"
-    foreground = "#6c6c6c"
-    background = "transparent"
-    template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}\u2193{{ end }}{{ if gt .Ahead 0 }}\u2191{{ end }}"
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} {{ if gt .Behind 0 }}↓{{ end }}{{ if gt .Ahead 0 }}↑{{ end }}'
+    foreground = '#6c6c6c'
+    background = 'transparent'
+    type = 'git'
+    style = 'plain'
 
     [blocks.segments.properties]
-      branch_icon = ""
+      branch_icon = ''
+      cache_duration = 'none'
+      commit_icon = '@'
       fetch_status = true
-      commit_icon = "@"
 
 [[blocks]]
-  type = "rprompt"
-  overflow = "hidden"
+  type = 'rprompt'
+  overflow = 'hidden'
 
   [[blocks.segments]]
-    type = "executiontime"
-    style = "plain"
-    foreground = "yellow"
-    background = "transparent"
-    template = "{{ div .Ms 1000 }}s"
+    template = '{{ div .Ms 1000 }}s'
+    foreground = 'yellow'
+    background = 'transparent'
+    type = 'executiontime'
+    style = 'plain'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       threshold = 5000
 
 [[blocks]]
-  type = "prompt"
-  alignment = "left"
+  type = 'prompt'
+  alignment = 'left'
   newline = true
 
   [[blocks.segments]]
-    type = "text"
-    style = "plain"
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}green{{end}}"
-    ]
-    background = "transparent"
-    template = "\u276f"
+    template = '❯'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}green{{end}}"
-  ]
-  background = "transparent"
-  template = "\u276f "
-
-
+    [blocks.segments.properties]
+      cache_duration = 'none'

@@ -1,5 +1,4 @@
-{ pkgs, userConfig, ... }:
-{
+{ pkgs, userConfig, ... }: {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;

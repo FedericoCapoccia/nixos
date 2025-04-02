@@ -21,8 +21,8 @@
 
       userConfig = {
         username = "fede";
-        terminal = "wezterm";
-        browser = "firefox";
+        terminal = "wezterm"; # TODO: remove
+        browser = "brave";
       };
 
       hostPath = ./hosts/${systemConfig.hostname};
@@ -33,12 +33,14 @@
           allowUnfreePredicate = (_: true);
         };
       };
-    in
-    {
+    in {
       nixosConfigurations.system = nixpkgs.lib.nixosSystem {
         system = systemConfig.system;
         modules = [ (hostPath + "/configuration.nix") ];
-        specialArgs = { inherit systemConfig; inherit userConfig; };
+        specialArgs = {
+          inherit systemConfig;
+          inherit userConfig;
+        };
       };
 
       homeConfigurations.user = home-manager.lib.homeManagerConfiguration {

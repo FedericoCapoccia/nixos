@@ -40,9 +40,7 @@
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;
-  programs.nix-ld = {
-    enable = true;
-  };
+  programs.nix-ld.enable = true;
 
   environment.pathsToLink = [ "/share/zsh" ];
   environment.systemPackages = with pkgs; [
@@ -51,18 +49,15 @@
     stow
     zsh
     home-manager
-    glib
-    clang
+    # glib
+    # clang
   ];
 
-  environment.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  environment.sessionVariables = { EDITOR = "nvim"; };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   system.stateVersion = "24.05";

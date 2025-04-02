@@ -13,8 +13,7 @@ let
     right = "l";
     left = "h";
   };
-in
-{
+in {
   programs.zsh.initExtra = ''
     if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
       dbus-run-session sway
@@ -42,13 +41,25 @@ in
 
       #---Startup---#
       startup = [
-        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        {
+          command =
+            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        }
         { command = "${pkgs.corectrl}/bin/corectrl"; }
         { command = "${pkgs.waybar}/bin/waybar"; }
         { command = "${pkgs.autotiling}/bin/autotiling --limit 2"; }
-        { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipman}/bin/clipman store"; }
-        { command = "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"; }
-        { command = "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP"; }
+        {
+          command =
+            "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.clipman}/bin/clipman store";
+        }
+        {
+          command =
+            "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";
+        }
+        {
+          command =
+            "hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP";
+        }
       ];
 
       #---Input---#
@@ -65,9 +76,7 @@ in
         "1356:1476:Sony_Computer_Entertainment_Wireless_Controller_Touchpad" = {
           events = "disabled";
         };
-        "1356:1476:Wireless_Controller_Touchpad" = {
-          events = "disabled";
-        };
+        "1356:1476:Wireless_Controller_Touchpad" = { events = "disabled"; };
 
       };
 
@@ -85,24 +94,61 @@ in
         border = 0;
         titlebar = false;
         criteria = [
-          { app_id = "Thunar"; title = "File Operation Progress"; }
+          {
+            app_id = "Thunar";
+            title = "File Operation Progress";
+          }
           { app_id = "org.pulseaudio.pavucontrol"; }
-          { app_id = ".blueman-manager-wrapped"; }
+          {
+            app_id = ".blueman-manager-wrapped";
+          }
           #---Steam---#
-          { class = "steam"; title = "Friends List"; }
-          { class = "steam"; title = "Steam - News"; }
-          { class = "steam"; title = "^.* - Chat$"; }
-          { class = "steam"; title = "^.* - event started$"; }
-          { class = "steam"; title = "^.* CD key$"; }
-          { class = "steam"; title = "Steam Settings"; }
-          { class = "steam"; title = "Steam - Self Updater"; }
-          { class = "steam"; title = "Screenshot Uploader"; }
-          { class = "steam"; title = "Steam Guard - Computer Authorization Required"; }
-          { title = "Steam Keyboard"; }
+          {
+            class = "steam";
+            title = "Friends List";
+          }
+          {
+            class = "steam";
+            title = "Steam - News";
+          }
+          {
+            class = "steam";
+            title = "^.* - Chat$";
+          }
+          {
+            class = "steam";
+            title = "^.* - event started$";
+          }
+          {
+            class = "steam";
+            title = "^.* CD key$";
+          }
+          {
+            class = "steam";
+            title = "Steam Settings";
+          }
+          {
+            class = "steam";
+            title = "Steam - Self Updater";
+          }
+          {
+            class = "steam";
+            title = "Screenshot Uploader";
+          }
+          {
+            class = "steam";
+            title = "Steam Guard - Computer Authorization Required";
+          }
+          {
+            title = "Steam Keyboard";
+          }
           #---Firefox---#
           { title = "About Mozilla Firefox"; }
           { window_role = "About"; }
-          { app_id = "firefox"; title = "Library"; }
+          {
+            app_id = "firefox";
+            title = "Library";
+          }
           #---Gentoo wiki---#
           { window_role = "popup"; }
           { window_role = "bubble"; }
@@ -132,7 +178,7 @@ in
         #---Layouts---#
         "${cfg.mod}+f" = "fullscreen";
         "${cfg.mod}+v" = "floating toggle";
-        "${cfg.mod}+r" = "mode \"resize\"";
+        "${cfg.mod}+r" = ''mode "resize"'';
 
         #---Focus---#
         "${cfg.mod}+${cfg.up}" = "focus up";
@@ -177,8 +223,10 @@ in
         "${cfg.mod}+Shift+0" = "move container to workspace number 10";
 
         #---Media Keys---#
-        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1";
-        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioRaiseVolume" =
+          "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1";
+        "XF86AudioLowerVolume" =
+          "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioPlay" = "exec playerctl play-pause";
         "XF86AudioNext" = "exec playerctl next";
@@ -194,8 +242,8 @@ in
         "Down" = "resize shrink height 10px";
         "Right" = "resize grow width 10px";
         "Left" = "resize shrink width 10px";
-        "Return" = "mode \"default\"";
-        "Escape" = "mode \"default\"";
+        "Return" = ''mode "default"'';
+        "Escape" = ''mode "default"'';
       };
     };
   };

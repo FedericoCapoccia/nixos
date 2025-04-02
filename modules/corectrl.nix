@@ -1,5 +1,4 @@
-{ userConfig, ... }:
-{
+{ userConfig, ... }: {
   programs.corectrl = {
     enable = true;
     gpuOverclock = {
@@ -8,7 +7,5 @@
     };
   };
 
-  users.users.${userConfig.username} = {
-    extraGroups = [ "corectrl" ];
-  };
+  users.users.${userConfig.username} = { extraGroups = [ "corectrl" ]; };
 }

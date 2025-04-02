@@ -1,6 +1,5 @@
-{ ... }:
-{
-  services.blueman.enable = true;
+{ ... }: {
+  # services.blueman.enable = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

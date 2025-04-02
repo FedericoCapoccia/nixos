@@ -1,5 +1,4 @@
-{ pkgs, config, userConfig, ... }:
-{
+{ pkgs, config, userConfig, ... }: {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
@@ -16,8 +15,9 @@
       ls = "ls --color=auto";
       l = "ls -l";
       ll = "ls -lahF";
-      gitacp = "git add --all && git commit -m \"\$(curl -s https://whatthecommit.com/index.txt)\" && git push";
-      inv = "nvim \$(fzf -m --preview=\"bat --color=always {}\")";
+      gitacp = ''
+        git add --all && git commit -m "$(curl -s https://whatthecommit.com/index.txt)" && git push'';
+      inv = ''nvim $(fzf -m --preview="bat --color=always {}")'';
       up = "sh ~/nixos/system-sync.sh";
       hup = "sh ~/nixos/config-sync.sh";
     };
@@ -42,10 +42,7 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    zsh-fzf-tab
-    zsh-fzf-history-search
-  ];
+  home.packages = with pkgs; [ zsh-fzf-tab zsh-fzf-history-search ];
 
   programs.fzf = {
     enable = true;

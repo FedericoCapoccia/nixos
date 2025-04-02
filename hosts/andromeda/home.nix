@@ -1,16 +1,13 @@
-{ config, userConfig, ... }:
-{
+{ config, userConfig, ... }: {
   home.username = userConfig.username;
   home.homeDirectory = "/home/" + userConfig.username;
   programs.home-manager.enable = true;
 
   imports = [
-    ../../home-manager/sway.nix
     ../../home-manager/zsh.nix
-    ../../home-manager/theming.nix
+    # ../../home-manager/theming.nix
     ../../home-manager/git.nix
     ../../home-manager/oh-my-posh.nix
-    ../../home-manager/firefox.nix
     ../../home-manager/direnv.nix
   ];
 
@@ -30,9 +27,7 @@
     };
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        "inode/directory" = "nemo.desktop";
-      };
+      # defaultApplications = { "inode/directory" = "nemo.desktop"; };
     };
   };
   home.stateVersion = "24.05";

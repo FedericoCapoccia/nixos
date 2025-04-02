@@ -2,8 +2,7 @@
 let
   cursor_name = "Bibata-Modern-Classic";
   cursor_size = 20;
-in
-{
+in {
   gtk = {
     enable = true;
     iconTheme = {
@@ -41,6 +40,6 @@ in
     qt6ct
   ];
 
-
-  wayland.windowManager.sway.extraConfig = "seat seat0 xcursor_theme ${cursor_name} ${toString cursor_size}";
+  wayland.windowManager.sway.extraConfig =
+    "seat seat0 xcursor_theme ${cursor_name} ${toString cursor_size}";
 }
