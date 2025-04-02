@@ -9,6 +9,8 @@
     ptyxis
     gnome-software
     gnome-tweaks
+    dconf-editor
+    gnomeExtensions.appindicator
   ];
 
   environment.gnome.excludePackages = (
