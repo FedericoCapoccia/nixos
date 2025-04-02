@@ -49,8 +49,7 @@
     stow
     zsh
     home-manager
-    # glib
-    # clang
+    clang # needed for neovim config
   ];
 
   environment.sessionVariables = { EDITOR = "nvim"; };

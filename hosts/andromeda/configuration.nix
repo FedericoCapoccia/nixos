@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ../base.nix
     # ../../modules/sway.nix
+    ../../modules/gnome.nix
     ../../modules/corectrl.nix
     ../../modules/pipewire.nix
     ../../modules/packages.nix
@@ -11,12 +12,9 @@
     # ../../modules/docker.nix
   ];
 
-  fonts.packages = with pkgs;
-    [
-      (nerdfonts.override {
-        fonts = [ "Ubuntu" "UbuntuMono" "JetBrainsMono" "CascadiaCode" ];
-      })
-    ];
+  fonts.packages = with pkgs; [
+    nerd-fonts.caskaydia-mono
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   services.gvfs.enable = true;

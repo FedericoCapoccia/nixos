@@ -7,6 +7,8 @@
     fastfetch
     direnv
 
+    flatpak
+
     # spotify
     # playerctl
 
