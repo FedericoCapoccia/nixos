@@ -6,6 +6,7 @@
     tree
     fastfetch
     direnv
+    ripgrep
 
     # Lsp
     lua-language-server
