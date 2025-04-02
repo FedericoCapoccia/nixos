@@ -2,8 +2,9 @@
 {
   environment.systemPackages = with pkgs; [
     brave
-    flatpak
     wl-clipboard
     cliphist
   ];
+
+  services.flatpak.enable = true;
 }

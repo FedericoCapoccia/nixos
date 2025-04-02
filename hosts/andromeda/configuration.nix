@@ -25,6 +25,4 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   services.gvfs.enable = true;
-
-  # services.getty.autologinUser = userConfig.username;
 }
