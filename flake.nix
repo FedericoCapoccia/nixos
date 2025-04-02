@@ -7,24 +7,27 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixos-wsl,
+      ...
+    }:
     let
       systemConfig = {
+        username = "fede";
         system = "x86_64-linux";
-        hostname = "andromeda";
         timezone = "Europe/Rome";
         locale = "en_US.UTF-8";
         locale_extra = "it_IT.UTF-8";
       };
 
-      userConfig = {
-        username = "fede";
-        browser = "brave";
-      };
+      hostPath = name: ./hosts/${name};
 
-      hostPath = ./hosts/${systemConfig.hostname};
       pkgs = import nixpkgs {
         system = systemConfig.system;
         config = {
@@ -32,20 +35,39 @@
           allowUnfreePredicate = (_: true);
         };
       };
-    in {
-      nixosConfigurations.system = nixpkgs.lib.nixosSystem {
-        system = systemConfig.system;
-        modules = [ (hostPath + "/configuration.nix") ];
-        specialArgs = {
-          inherit systemConfig;
-          inherit userConfig;
+    in
+    {
+      nixosConfigurations = {
+
+        andromeda = nixpkgs.lib.nixosSystem {
+          system = systemConfig.system;
+          modules = [ (hostPath "andromeda" + "/configuration.nix") ];
+          specialArgs = {
+            inherit systemConfig;
+          };
         };
+
+        zephyr = nixpkgs.lib.nixosSystem {
+          system = systemConfig.system;
+          modules = [
+            nixos-wsl.nixosModules.default
+            {
+              system.stateVersion = "24.11";
+              wsl.enable = true;
+            }
+            (hostPath "zephyr" + "/configuration.nix")
+          ];
+          specialArgs = {
+            inherit systemConfig;
+          };
+        };
+
       };
 
       homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ (hostPath + "/home.nix") ];
-        extraSpecialArgs = { inherit userConfig; };
+        modules = [ "./hosts/home.nix" ];
+        extraSpecialArgs = { inherit systemConfig; };
       };
     };
 }

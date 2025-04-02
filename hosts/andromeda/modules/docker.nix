@@ -1,9 +1,10 @@
-{ userConfig, pkgs, ... }: {
+{ systemConfig, pkgs, ... }:
+{
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
     extraPackages = [ pkgs.docker-compose ];
   };
 
-  users.users.${userConfig.username}.extraGroups = [ "docker" ];
+  users.users.${systemConfig.username}.extraGroups = [ "docker" ];
 }

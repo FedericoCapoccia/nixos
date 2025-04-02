@@ -1,21 +1,22 @@
-{ pkgs, systemConfig, userConfig, ... }:
+{
+  pkgs,
+  systemConfig,
+  ...
+}:
 
 {
   nixpkgs.config.allowUnfree = true;
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     optimise.automatic = true;
     gc = {
       automatic = true;
       dates = "daily";
       options = "--delete-older-than 7d";
     };
-  };
-
-  networking = {
-    hostName = systemConfig.hostname;
-    networkmanager.enable = true;
-    firewall.enable = true;
   };
 
   time.timeZone = systemConfig.timezone;
@@ -33,13 +34,15 @@
   };
 
   users.defaultUserShell = pkgs.zsh;
-  users.users.${userConfig.username} = {
+  users.users.${systemConfig.username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   programs.zsh.enable = true;
-  programs.dconf.enable = true;
   programs.nix-ld.enable = true;
 
   environment.pathsToLink = [ "/share/zsh" ];
@@ -52,7 +55,9 @@
     clang # needed for neovim config
   ];
 
-  environment.sessionVariables = { EDITOR = "nvim"; };
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   hardware.graphics = {
     enable = true;
@@ -61,4 +66,3 @@
 
   system.stateVersion = "24.11";
 }
-

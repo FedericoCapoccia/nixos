@@ -1,16 +1,25 @@
-{ pkgs, userConfig, ... }: {
+{ pkgs, systemConfig, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../base.nix
-    # ../../modules/sway.nix
-    ../../modules/gnome.nix
-    ../../modules/corectrl.nix
-    ../../modules/pipewire.nix
-    ../../modules/packages.nix
-    ../../modules/gaming.nix
-    ../../modules/bluetooth.nix
-    # ../../modules/docker.nix
+    ../shared_packages.nix
+
+    ./packages.nix
+    ./modules/gnome.nix
+    ./modules/corectrl.nix
+    ./modules/pipewire.nix
+    ./modules/gaming.nix
+    ./modules/bluetooth.nix
   ];
+
+  networking = {
+    hostName = systemConfig.hostname;
+    networkmanager.enable = true;
+    firewall.enable = true;
+  };
+
+  programs.dconf.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.caskaydia-mono
