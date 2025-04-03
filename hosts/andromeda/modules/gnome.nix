@@ -11,7 +11,13 @@
     gnome-tweaks
     dconf-editor
     gnomeExtensions.appindicator
+    xdg-terminal-exec
   ];
+
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "ptyxis";
+  };
 
   environment.gnome.excludePackages = (
     with pkgs;
