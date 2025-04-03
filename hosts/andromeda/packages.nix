@@ -4,7 +4,8 @@
     brave
     wl-clipboard
     cliphist
+    prismlauncher
+    xdg-terminal-exec
   ];
-
   services.flatpak.enable = true;
 }

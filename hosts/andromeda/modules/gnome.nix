@@ -23,6 +23,7 @@
       geary
       gedit
       gnome-characters
+      gnome-console
       gnome-music
       gnome-photos
       gnome-tour
