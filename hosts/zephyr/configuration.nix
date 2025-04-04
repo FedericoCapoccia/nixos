@@ -4,4 +4,5 @@
     ../base.nix
     ../shared_packages.nix
   ];
+  wsl.defaultUser = "fede";
 }
