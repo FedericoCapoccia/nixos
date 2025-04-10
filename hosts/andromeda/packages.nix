@@ -6,6 +6,7 @@
     cliphist
     prismlauncher
     jetbrains-toolbox
+    vscode-fhs
   ];
   services.flatpak.enable = true;
 }
