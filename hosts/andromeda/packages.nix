@@ -5,6 +5,7 @@
     wl-clipboard
     cliphist
     prismlauncher
+    jetbrains-toolbox
   ];
   services.flatpak.enable = true;
 }
