@@ -26,4 +26,18 @@ in
       gtk-application-prefer-dark-theme = "1";
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
+  };
+
+  home.packages = with pkgs; [
+    materia-kde-theme
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
+    kdePackages.qtstyleplugin-kvantum
+    qt6ct
+  ];
 }

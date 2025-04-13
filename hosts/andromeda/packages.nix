@@ -7,6 +7,8 @@
     prismlauncher
     jetbrains-toolbox
     vscode-fhs
+    qtspim
+    mars-mips
   ];
   services.flatpak.enable = true;
 }
