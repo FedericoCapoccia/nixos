@@ -7,6 +7,7 @@
     prismlauncher
     jetbrains-toolbox
     vscode-fhs
+    qtspim
   ];
   services.flatpak.enable = true;
 }

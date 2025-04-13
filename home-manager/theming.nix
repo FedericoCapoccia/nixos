@@ -29,15 +29,24 @@ in
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
+    platformTheme.name = "adwaita";
+    style.name = "adwaita-dark";
   };
 
   home.packages = with pkgs; [
-    materia-kde-theme
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
-    kdePackages.qtstyleplugin-kvantum
-    qt6ct
+    adwaita-qt6
+    adwaita-qt
+    # materia-kde-theme
+    # libsForQt5.qtstyleplugin-kvantum
+    # libsForQt5.qt5ct
+    # kdePackages.qtstyleplugin-kvantum
+    # qt6ct
   ];
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+    XCURSOR_SIZE = cursor_size;
+    XCURSOR_THEME = cursor_name;
+  };
+
 }
