@@ -8,7 +8,8 @@
     jetbrains-toolbox
     vscode-fhs
     qtspim
-    mars-mips
+    jdk
+    eyedropper
   ];
   services.flatpak.enable = true;
 }
