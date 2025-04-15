@@ -7,6 +7,7 @@
     fastfetch
     direnv
     ripgrep
+    emoji-picker
 
     # Lsp
     lua-language-server
