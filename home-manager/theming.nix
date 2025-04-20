@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   cursor_name = "Bibata-Modern-Classic";
   cursor_size = 20;
@@ -18,6 +18,7 @@ in
       size = cursor_size;
     };
 
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk2.extraConfig = "gtk-application-prefer-dark-theme=1";
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = "1";
@@ -35,10 +36,6 @@ in
 
   home.packages = with pkgs; [
     materia-kde-theme
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
-    kdePackages.qtstyleplugin-kvantum
-    qt6ct
   ];
 
   home.sessionVariables = {
