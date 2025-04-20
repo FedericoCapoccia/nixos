@@ -6,7 +6,7 @@
     ../shared_packages.nix
 
     ./packages.nix
-    ./modules/gnome.nix
+    ./modules/kde.nix
     ./modules/corectrl.nix
     ./modules/pipewire.nix
     ./modules/gaming.nix

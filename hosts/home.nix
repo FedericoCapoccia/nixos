@@ -10,6 +10,7 @@
     ../home-manager/git.nix
     ../home-manager/oh-my-posh.nix
     ../home-manager/direnv.nix
+    ../home-manager/kitty.nix
   ];
 
   xdg = {

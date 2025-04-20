@@ -27,20 +27,18 @@ in
     };
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
-  };
+  # qt = {
+  # enable = true;
+  # platformTheme.name = "qt6ct";
+  # style.name = "kvantum";
+  # };
 
   home.packages = with pkgs; [
-    adwaita-qt6
-    adwaita-qt
-    # materia-kde-theme
-    # libsForQt5.qtstyleplugin-kvantum
-    # libsForQt5.qt5ct
-    # kdePackages.qtstyleplugin-kvantum
-    # qt6ct
+    materia-kde-theme
+    libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5ct
+    kdePackages.qtstyleplugin-kvantum
+    qt6ct
   ];
 
   home.sessionVariables = {
