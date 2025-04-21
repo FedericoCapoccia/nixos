@@ -7,6 +7,8 @@
     fastfetch
     direnv
     ripgrep
+    fd
+    tldr
     emoji-picker
 
     # Lsp
