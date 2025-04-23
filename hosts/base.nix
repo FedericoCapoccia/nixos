@@ -54,10 +54,12 @@
     zsh
     home-manager
     clang # needed for neovim config
+    vulkan-validation-layers
   ];
 
   environment.sessionVariables = {
     EDITOR = "nvim";
+    VK_LAYER_PATH = "${pkgs.vulkan-validation-layers}/share/vulkan/explicit_layer.d";
   };
 
   hardware.graphics = {
