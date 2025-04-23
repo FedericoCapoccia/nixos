@@ -10,6 +10,7 @@
     qtspim
     jdk
     eyedropper
+    vulkan-tools-lunarg
   ];
   services.flatpak.enable = true;
 }

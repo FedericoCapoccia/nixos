@@ -18,5 +18,7 @@
     # Formatters
     nixfmt-tree
     stylua
+
+    vulkan-tools
   ];
 }
