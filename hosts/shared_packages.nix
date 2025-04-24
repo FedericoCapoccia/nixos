@@ -10,6 +10,7 @@
     fd
     tldr
     emoji-picker
+    jq
 
     # Lsp
     lua-language-server
