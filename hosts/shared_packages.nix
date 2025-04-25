@@ -11,6 +11,7 @@
     tldr
     emoji-picker
     jq
+    libcamera
 
     # Lsp
     lua-language-server

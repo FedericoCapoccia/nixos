@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     kitty
     kdePackages.sddm-kcm
+    kdePackages.plymouth-kcm
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
