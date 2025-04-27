@@ -44,6 +44,7 @@
     # Flatpak
     profileExtra = ''
       export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:/home/${systemConfig.username}/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
+      # . $HOME/VulkanSDK/1.4.309.0/setup-env.sh
     '';
   };
 
